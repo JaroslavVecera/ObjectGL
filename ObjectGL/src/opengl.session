@@ -1,0 +1,206 @@
+let SessionLoad = 1
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/dev/the-cherno/opengl/ep24-test-framework
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +2 tests/Test.h
+badd +17 tests/TestClearColor.h
+badd +1 tests
+badd +0 tests/TestClearColor.cpp
+badd +3 ~/.config/nvim/init.vim
+badd +415 ~/.vimrc
+badd +1 ~/
+badd +5 ~/dev/dotfiles/vim/ftplugin/cpp.vim
+badd +0 Makefile
+badd +12 Renderer.h
+badd +1 Debug.h
+badd +87 Application.cpp
+badd +5 Renderer.cpp
+argglobal
+silent! argdel *
+set stal=2
+edit tests/Test.h
+set splitbelow splitright
+wincmd _ | wincmd |
+split
+wincmd _ | wincmd |
+split
+2wincmd k
+wincmd w
+wincmd w
+set nosplitright
+wincmd t
+set winminheight=1 winminwidth=1 winheight=1 winwidth=1
+exe '1resize ' . ((&lines * 19 + 31) / 62)
+exe '2resize ' . ((&lines * 19 + 31) / 62)
+exe '3resize ' . ((&lines * 18 + 31) / 62)
+argglobal
+setlocal fdm=syntax
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=2
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+let s:l = 2 - ((1 * winheight(0) + 9) / 19)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+2
+normal! 0
+wincmd w
+argglobal
+if bufexists('tests/TestClearColor.h') | buffer tests/TestClearColor.h | else | edit tests/TestClearColor.h | endif
+setlocal fdm=syntax
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=2
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+7
+normal! zo
+let s:l = 16 - ((13 * winheight(0) + 9) / 19)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+16
+normal! 016|
+wincmd w
+argglobal
+if bufexists('tests/TestClearColor.cpp') | buffer tests/TestClearColor.cpp | else | edit tests/TestClearColor.cpp | endif
+setlocal fdm=syntax
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=2
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+8
+normal! zo
+22
+normal! zo
+28
+normal! zo
+let s:l = 3 - ((2 * winheight(0) + 9) / 18)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+3
+normal! 010|
+lcd ~/dev/the-cherno/opengl/ep24-test-framework
+wincmd w
+2wincmd w
+exe '1resize ' . ((&lines * 19 + 31) / 62)
+exe '2resize ' . ((&lines * 19 + 31) / 62)
+exe '3resize ' . ((&lines * 18 + 31) / 62)
+tabedit ~/dev/the-cherno/opengl/ep24-test-framework/Makefile
+set splitbelow splitright
+set nosplitright
+wincmd t
+set winminheight=1 winminwidth=1 winheight=1 winwidth=1
+argglobal
+setlocal fdm=syntax
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=2
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+let s:l = 2 - ((1 * winheight(0) + 29) / 58)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+2
+normal! 0
+tabedit ~/dev/the-cherno/opengl/ep24-test-framework/Debug.h
+set splitbelow splitright
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+set nosplitright
+wincmd t
+set winminheight=1 winminwidth=1 winheight=1 winwidth=1
+exe '1resize ' . ((&lines * 28 + 31) / 62)
+exe '2resize ' . ((&lines * 29 + 31) / 62)
+argglobal
+setlocal fdm=syntax
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=3
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+let s:l = 1 - ((0 * winheight(0) + 14) / 28)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+wincmd w
+argglobal
+if bufexists('~/dev/the-cherno/opengl/ep24-test-framework/Renderer.cpp') | buffer ~/dev/the-cherno/opengl/ep24-test-framework/Renderer.cpp | else | edit ~/dev/the-cherno/opengl/ep24-test-framework/Renderer.cpp | endif
+setlocal fdm=syntax
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=2
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+let s:l = 6 - ((5 * winheight(0) + 14) / 29)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+6
+normal! 046|
+wincmd w
+exe '1resize ' . ((&lines * 28 + 31) / 62)
+exe '2resize ' . ((&lines * 29 + 31) / 62)
+tabedit ~/dev/the-cherno/opengl/ep24-test-framework/Application.cpp
+set splitbelow splitright
+set nosplitright
+wincmd t
+set winminheight=1 winminwidth=1 winheight=1 winwidth=1
+argglobal
+setlocal fdm=syntax
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=4
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+60
+normal! zo
+let s:l = 13 - ((12 * winheight(0) + 29) / 58)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+13
+normal! 018|
+tabnext 1
+set stal=1
+if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 winminheight=1 winminwidth=1 shortmess=atI
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :
