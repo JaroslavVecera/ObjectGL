@@ -2,7 +2,7 @@
 
 #include "Debug.h"
 #include "imgui.h"
-
+/*
 namespace test
 {
     TestClearColor::TestClearColor()
@@ -28,4 +28,4 @@ namespace test
     {
         ImGui::ColorEdit4("Clear Color", m_ClearColor);
     }
-};
+};*/

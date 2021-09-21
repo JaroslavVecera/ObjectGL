@@ -2,7 +2,7 @@
 
 #include "Debug.h"
 #include "imgui.h"
-
+/*
 namespace test
 {
     TestUniform::TestUniform() :
@@ -77,4 +77,4 @@ namespace test
         ImGui::Checkbox("Oscillate Red", &m_Oscillate);
         ImGui::SliderFloat("Red Oscillation Speed", &m_Step, 0.0f, 0.25f);
     }
-};
+};*/

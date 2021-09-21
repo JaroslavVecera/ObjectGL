@@ -69,14 +69,12 @@ int main( void )
 	test::Test* currentTest = nullptr;
     test::TestMenu* testMenu = new test::TestMenu(currentTest);
     currentTest = testMenu;
-
+    /*
 	testMenu->RegisterTest<test::TestClearColor>("Clear Color");
 	testMenu->RegisterTest<test::TestTriangle>("Triangle");
+	testMenu->RegisterTest<test::TestMultipleObjects>("MultipleObjects");*/
 	testMenu->RegisterTest<test::TestTexture>("Texture");
-	testMenu->RegisterTest<test::TestMultipleObjects>("MultipleObjects");
 	testMenu->RegisterTest<test::TestBatch>("Batch");
-
-    test::TestClearColor test;
 
     while (!glfwWindowShouldClose(window)) {
         GLCall(glClearColor(0.0f, 0.0f, 0.0f, 0.0f));

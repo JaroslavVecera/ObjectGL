@@ -2,7 +2,7 @@
 
 #include "Debug.h"
 #include "imgui.h"
-
+/*
 namespace test
 {
     TestTriangle::TestTriangle() :
@@ -46,4 +46,4 @@ namespace test
     {
         ImGui::ColorEdit4("Clear Color", m_ClearColor);
     }
-};
+};*/

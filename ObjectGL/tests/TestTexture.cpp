@@ -11,21 +11,14 @@ namespace test
     TestTexture::TestTexture()
 		: translationA(200, 200, 0), translationB(400, 200, 0)
     {
-
-        float positions[] = {
-            -50.0f, -50.0f, 0.0f, 0.0f,
-            50.0f, -50.0f, 1.0f, 0.0f,
-            50.0f, 50.0f, 1.0f, 1.0f,
-            -50.0f, 50.0f, 0.0f, 1.0f,
-        };
         unsigned int indicies[] = { 0, 1, 2, 2, 3, 0 };
 
         GLCall(glEnable(GL_BLEND));
         GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
 
-        shader = std::make_unique<Shader>("res/shaders/Simple.shader");
+        shader = std::make_unique<Shader>("res/shaders/Complex.shader");
         vao = std::make_unique<VertexArray>();
-        vb = std::make_unique<VertexBuffer>(positions, 4 * 4 * sizeof(float));
+        vb = std::make_unique<VertexBuffer>(1000, 4 * sizeof(float));
         VertexBufferLayout layout;
 		layout.AddFloat(2);
 		layout.AddFloat(2);
@@ -35,10 +28,16 @@ namespace test
 		proj = glm::ortho(0.0f, 960.0f, 0.0f, 540.f, -1.0f, 1.0f);
 		view = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
         shader->Bind();
-        shader->SetUniform4f("u_Color", 50.0f, 50.0f, 50.0f, 50.0f);
         texture = std::make_unique<Texture>("res/textures/gold-dollar.png");
         shader->SetUniform1f("u_Texture", 0);
     }
+
+	float TestTexture::positions[16] = {
+		-50.0f, -50.0f, 0.0f, 0.0f,
+		50.0f, -50.0f, 1.0f, 0.0f,
+		50.0f, 50.0f, 1.0f, 1.0f,
+		-50.0f, 50.0f, 0.0f, 1.0f,
+	};
 
     TestTexture::~TestTexture()
     {
@@ -58,6 +57,7 @@ namespace test
 
 		glm::mat4 model = glm::translate(glm::mat4(1.0f), translationA);
         glm::mat4 mvp = proj * view * model;
+		glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(positions), positions);
         shader->Bind();
         shader->SetUniformMat4f("u_MVP", mvp);
         renderer.Draw(*vao, *index_buffer, *shader);

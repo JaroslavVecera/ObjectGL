@@ -199,7 +199,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="res\shaders\Basic.shader" />
+    <None Include="res\shaders\Color.shader" />
+    <None Include="res\shaders\Texture.shader" />
     <None Include="res\shaders\Complex.shader" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -18,7 +18,6 @@ namespace test
 		void OnUpdate(float deltaTime) override;
 		void OnRender() override;
 		void OnImGuiRender() override;
-
 	private:
 		std::unique_ptr<VertexArray> vao;
 		std::unique_ptr<VertexBuffer> vb;
@@ -29,5 +28,6 @@ namespace test
 		glm::mat4 view;
 		glm::vec3 translationA;
 		glm::vec3 translationB;
+		static float positions[16];
 	};
 };

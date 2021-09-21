@@ -5,7 +5,7 @@
 
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
-
+/*
 namespace test
 {
     TestMultipleObjects::TestMultipleObjects() :
@@ -78,4 +78,4 @@ namespace test
         ImGui::SliderFloat3("TranslationA", &m_translationA.x, 0.0f, 960.0f);
         ImGui::SliderFloat3("TranslationB", &m_translationB.x, 0.0f, 960.0f);
     }
-};
+};*/
