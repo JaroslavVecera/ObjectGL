@@ -31,7 +31,7 @@ namespace test
 
 		colorVao->AddBuffer(*colorVb, colorLayout);
 		textureVao->AddBuffer(*textureVb, textureLayout);
-        index_buffer = std::make_unique<IndexBuffer>(indicies,12);
+		index_buffer = std::make_unique<IndexBuffer>(indicies, 12);
 
 		proj = glm::ortho(0.0f, 960.0f, 0.0f, 540.f, -1.0f, 1.0f);
 		colorShader->Bind();
@@ -91,8 +91,8 @@ namespace test
     void TestBatch::OnRender()
     {
         GLCall(glClearColor(0.0f, 0.0f, 0.5f, 0.0f));
-        Renderer renderer;
-        renderer.Clear();
+		Renderer renderer;
+		renderer.Clear();
 
 		colorVb->Bind();
 		glm::mat4 model = glm::translate(glm::mat4(1.0f), translationA);
@@ -110,9 +110,11 @@ namespace test
 		renderer.Draw(*colorVao, *index_buffer, *colorShader);
 
 		textureVb->Bind();
-		TextureVertex textureVertices[4];
+		TextureVertex textureVertices[8];
 		auto q3 = CreateTextureQuad(300.0f, 50.0f, 70.0f);
+		auto q4 = CreateTextureQuad(450.0f, 50.0f, 70.0f);
 		memcpy(textureVertices, &q3, q3.size() * sizeof(TextureVertex));
+		memcpy(textureVertices + q3.size(), &q4, q4.size() * sizeof(TextureVertex));
 		glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(textureVertices), textureVertices);
 
 		textureShader->Bind();

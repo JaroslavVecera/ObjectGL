@@ -16,6 +16,7 @@
 #include "TestMultipleObjects.h"
 #include "TestTexture.h"
 #include "TestBatch.h"
+#include "TestBatchRenderer.h"
 
 #include "Debug.h"
 #include "Test.h"
@@ -75,6 +76,7 @@ int main( void )
 	testMenu->RegisterTest<test::TestMultipleObjects>("MultipleObjects");*/
 	testMenu->RegisterTest<test::TestTexture>("Texture");
 	testMenu->RegisterTest<test::TestBatch>("Batch");
+	testMenu->RegisterTest<test::TestBatchRenderer>("Batch Renderer");
 
     while (!glfwWindowShouldClose(window)) {
         GLCall(glClearColor(0.0f, 0.0f, 0.0f, 0.0f));
